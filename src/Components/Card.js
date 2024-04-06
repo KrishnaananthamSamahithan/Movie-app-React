@@ -1,17 +1,21 @@
 import react from "react";
 
-const Card=()=>{
+const Card=(movie)=>{
+    console.log(movie.info);
+    let img_path='https://image.tmdb.org/t/p/w500';
     return (
         <>
             <div className='movie'>
-                <img src="images/poster.jpg" className="poster"></img>
+                <img src={img_path+movie.info.poster_path} className="poster"></img>
                 <div className="movie-details">
-                    <h4 className="title">Movie Title</h4>
-                    <p className="rating">9.7</p>
-                </div>
-                <div className="overview">
-                    <h1>Overview</h1>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et quam in ex ultrices lacinia
+                    <div className="box">
+                        <h4 className="title">{movie.info.title}</h4>
+                        <p className="rating">{movie.info.vote_average}</p>
+                    </div>
+                    <div className="overview">
+                        <h1>Overview</h1>
+                        {movie.info.overview}
+                    </div>
                 </div>
             </div>
         </>
